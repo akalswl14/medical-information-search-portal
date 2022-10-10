@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Noto+Serif+KR:wght@500&family=Sunflower:wght@500&display=swap"
+    rel="stylesheet">
+  <script src="https://kit.fontawesome.com/f1def33959.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <title>Medical Information Search Portal</title>
+
+<body>
+  <div class="main-content">
+    <div class="search-component">
+      <select name="search-type" id="search-type">
+        <option value="general">증상 검색</option>
+        <option value="chatbot">챗봇 검색</option>
+      </select>
+      <form id="search-form">
+        <input required maxlength="20" type="text" placeholder="증상을 입력하세요" />
+      </form>
+    </div>
+  </div>
+  <img src="../img/0.jpg" style="filter: blur(7px);">
+  <script src="../js/search.js"></script>
+</body>
+
+</html>

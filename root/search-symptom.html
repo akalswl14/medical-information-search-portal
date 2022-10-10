@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Noto+Serif+KR:wght@500&family=Sunflower:wght@500&display=swap"
+    rel="stylesheet">
+  <script src="https://kit.fontawesome.com/f1def33959.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <title>Medical Information Search Portal</title>
+
+<body>
+  <div class="main-content">
+    <button id="back-main" onclick="location.href='index.html'">
+      ← 메인 페이지로
+    </button>
+    <div class="search-component">
+      <select name="search-type" id="search-type">
+        <option value="general">증상 검색</option>
+        <option value="chatbot">챗봇 검색</option>
+      </select>
+      <form id="search-form">
+        <input required maxlength="20" type="text" placeholder="증상을 입력하세요"/>
+      </form>
+    </div>
+    <div id="search-result">
+      <div style="width: 100%; text-align:left; padding: 10px;">증상 검색 결과</div>
+      <ul class="list-group">
+        <li class="list-group-item">New <span class="badge">12</span></li>
+        <li class="list-group-item">Deleted <span class="badge">5</span></li>
+        <li class="list-group-item">Warnings <span class="badge">3</span></li>
+      </ul>
+    </div>
+  </div>
+  <img src="../img/0.jpg" style="filter: blur(7px);">
+  <script src="../js/search.js"></script>
+  <script>
+    const urlParams
+      = new URLSearchParams(window.location.search);
+    const keyWord = urlParams.get('key');
+    const selectType = urlParams.get('type');
+    searchForm.querySelector("input").value = keyWord;
+    document.querySelector("#search-type").value = selectType;
+  </script>
+</body>
+
+</html>
