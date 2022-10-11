@@ -18,4 +18,25 @@ function handleSymptomSubmit(event) {
   //     .catch((error) => console.log(error));
 }
 
+const searchSymptoms = async (keyword) => {
+  const ul = document.getElementById("symptom-list");
+  const list = document.createDocumentFragment();
+  const url = "http://localhost:3000/symptoms";
+  const config = {
+    method: "post",
+    body: JSON.stringify({
+      symptomQuery: keyword,
+    }),
+  };
+  const res = await fetch(url, config);
+  const { symptomResult } = await res.json();
+  symptomResult.map((eachSymptom) => {
+    let li = document.createElement("li");
+    let name = document.createElement("span");
+    name.innerHTML = `${eachSymptom}`;
+    li.appendChild(name);
+    list.appendChild(li);
+  });
+  ul.appendChild(list);
+};
 searchForm.addEventListener("submit", handleSymptomSubmit);
