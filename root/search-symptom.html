@@ -26,20 +26,26 @@
         <option value="chatbot">챗봇 검색</option>
       </select>
       <form id="search-form">
-        <input required maxlength="20" type="text" placeholder="증상을 입력하세요"/>
+        <input required maxlength="20" type="text" placeholder="증상을 입력하세요" />
       </form>
     </div>
     <div id="search-result">
-      <div style="width: 100%; text-align:left; padding: 10px;">증상 검색 결과</div>
-      <ul id="symptom-list" class="list-group">
-        <!-- <li class="list-group-item">New <span class="badge">12</span></li>
+      <div class="tag-field">
+        <ul id="tag-ul"></ul>
+        <button id="tagfield-search" style="width: 10%; margin-left:auto; height: 50px; margin: auto;" onclick="onTagSearchButtonClick()"></button>
+      </div>
+      <div style="width: 100%; text-align:left; padding: 10px; font-weight: 500; font-size: 1.1rem;">증상 검색 결과</div>
+      <div id="symptom-list"></div>
+      <!-- <ul id="symptom-list" class="list-group">
+        <li class="list-group-item">New <span class="badge">12</span></li>
         <li class="list-group-item">Deleted <span class="badge">5</span></li>
-        <li class="list-group-item">Warnings <span class="badge">3</span></li> -->
-      </ul>
+        <li class="list-group-item">Warnings <span class="badge">3</span></li>
+      </ul> -->
     </div>
   </div>
   <img src="../img/0.jpg" style="filter: blur(7px);">
   <script src="../js/search.js"></script>
+  <script src="../js/tag.js"></script>
   <script>
     const urlParams
       = new URLSearchParams(window.location.search);
@@ -48,6 +54,7 @@
     searchForm.querySelector("input").value = keyWord;
     document.querySelector("#search-type").value = selectType;
     searchSymptoms();
+    document.querySelector('#tagfield-search').innerHTML = selectType == 'general' ? '증상 검색' : '챗봇 검색';
   </script>
 </body>
 
